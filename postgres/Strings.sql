@@ -17,4 +17,23 @@ order by memid;
 select lpad(cast(zipcode as char(5)),5,'0') zip from cd.members order by zip          
 
 --exercicio 6 : Count the number of members whose surname starts with each letter of the alphabet
+select substr (mems.surname,1,1) as letter, count(*) as count 
+    from cd.members mems
+    group by letter
+    order by letter       
 
+--exercicio 7 : Clean up telephone numbers
+select memid, translate(telephone, '-() ', '') as telephone
+    from cd.members
+    order by memid;      
+
+--ex8: Count the number of members whose surname starts with each letter of the alphabet
+select substr (mems.surname,1,1) as letter, count(*) as count 
+    from cd.members mems
+    group by letter
+    order by letter     
+
+--ex9: Clean up telephone numbers   
+select memid, translate(telephone, '-() ', '') as telephone
+    from cd.members
+    order by memid;    
